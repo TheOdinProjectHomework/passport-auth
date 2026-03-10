@@ -94,10 +94,12 @@ app.get("/log-out", (req, res, next) => {
     })
 })
 
-app.listen(3000, (error) => {
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, (error) => {
     connectDB();
     if(error) {
         throw error;
     }
-    console.log("server listening on port 3000");
+    console.log("server listening on port: ", PORT);
 })
