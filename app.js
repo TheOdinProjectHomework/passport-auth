@@ -9,6 +9,7 @@ import { Strategy as LocalStrategy } from "passport-local"
 import { fileURLToPath } from "url"
 import { User } from "./model/user.model.js"
 import bcrypt from "bcryptjs"
+import helmet from "helmet";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.use(helmet());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
